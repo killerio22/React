@@ -1,0 +1,20 @@
+h1{
+    color: darkorange;
+    text-align: center;
+}
+
+.rick-and-morty-characters {
+    background-color: gray;
+    padding: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.character-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}

@@ -1,0 +1,37 @@
+.family {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.family-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.family-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.family-member {
+    width: 200px;
+    margin: 0 10px;
+}
+
+.family-member-photo {
+    width: 50%;
+    border-radius: 3%;
+}
+
+.family-member-name {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.family-member-info {
+    font-size: 14px;
+    color: darkblue;
+    margin-bottom: 3px;
+}
