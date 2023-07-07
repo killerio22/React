@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Users = () => {
     const [users, setUsers] = useState([]);
     const [selectedUserId, setSelectedUserId] = useState(null);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -10,6 +11,15 @@ const Users = () => {
             .then(data => setUsers(data))
             .catch(error => console.error(error));
     }, []);
+
+    useEffect(() => {
+        if (selectedUserId) {
+            fetch(`https://jsonplaceholder.typicode.com/posts?userId=${selectedUserId}`)
+                .then(response => response.json())
+                .then(data => setPosts(data))
+                .catch(error => console.error(error));
+        }
+    }, [selectedUserId]);
 
     const handleUserSelection = (userId) => {
         setSelectedUserId(userId);
@@ -27,7 +37,13 @@ const Users = () => {
                     {selectedUserId === user.id && (
                         <div>
                             <h2>Posts by User {user.name}</h2>
-                            {/* Тут виводимо пости для обраного користувача */}
+                            {posts.map(post => (
+                                <div key={post.id}>
+                                    <h3>{post.title}</h3>
+                                    <p>{post.body}</p>
+                                    <hr />
+                                </div>
+                            ))}
                         </div>
                     )}
                     <hr />
