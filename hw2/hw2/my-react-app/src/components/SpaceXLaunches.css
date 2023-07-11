@@ -1,0 +1,11 @@
+.Launches{
+    text-align: center;
+}
+.Launch{
+    margin: 10px 25%;
+    max-width: 960px;
+    border: 1px solid blue;
+    border-radius: 30px;
+    text-align: center;
+    background-color: lightblue;
+}
