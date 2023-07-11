@@ -1,0 +1,23 @@
+.Post {
+    background-color: papayawhip;
+    border: 1px solid palegoldenrod;
+    border-radius: 30px;
+    padding: 10px;
+    max-width: 940px;
+    margin: 10px 25%;
+}
+
+.Post h2 {
+    color: black;
+}
+
+.Post p {
+    color: #666;
+}
+
+.Post button{
+    border-radius: 10px;
+    border: 0;
+    background-color: black;
+    color: white;
+}
