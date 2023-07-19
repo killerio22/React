@@ -1,0 +1,7 @@
+.Users{
+    border: 3px solid red;
+    border-radius: 15%;
+    margin: 10px auto;
+    text-align: center;
+    max-width: 400px;
+}
