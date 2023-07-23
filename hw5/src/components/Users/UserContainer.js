@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { UserForm } from "./UserForm";
 import { Users } from "./Users";
+import {useUsersService} from "../services/usersService";
 
 const UserContainer = () => {
     const [users, setUsers] = useState([]);
