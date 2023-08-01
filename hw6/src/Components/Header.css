@@ -1,0 +1,20 @@
+.Header{
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vh;
+    margin-bottom: 10px;
+    background-color: wheat;
+}
+
+.Header a{
+    text-decoration: none;
+    color: darkcyan;
+    margin: 0 20px;
+}
+
+.Header a[class='active']{
+    color: darkblue;
+    cursor: default;
+}
