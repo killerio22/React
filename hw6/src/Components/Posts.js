@@ -1,38 +1,26 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, {Component} from 'react';
+import {postService} from "../services/PostService";
+import {Post} from "./Post";
 
 class Posts extends Component {
-    state = {
-        posts: []
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            posts:[]
+        }
+    }
 
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then(response => {
-                this.setState({ posts: response.data });
-            })
-            .catch(error => {
-                console.error('Error fetching posts:', error);
-            });
+        postService.getAll().then(({data})=>this.setState({posts:data}))
     }
 
     render() {
-        const { posts } = this.state;
         return (
             <div>
-                <h2 style={{color:'darkgoldenrod'}}>Posts</h2>
-                <ul>
-                    {posts.map(post => (
-                        <p key={post.id}>
-                            <h4 style={{color:'darkblue'}}>ID: {post.id}</h4>
-                            <h3 style={{color:'darkcyan'}}>{post.title}</h3>
-                            <h3 style={{color:'darkcyan'}}>{post.body}</h3>
-                        </p>
-                    ))}
-                </ul>
+                {this.state.posts.map(post=><Post key={post.id} post={post}/>)}
             </div>
         );
     }
 }
 
-export default Posts;
+export {Posts};

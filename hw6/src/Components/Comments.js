@@ -1,38 +1,25 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, {Component} from 'react';
+import {commentService} from "../services/commentService";
+import {Comment} from "./Comment";
 
 class Comments extends Component {
-    state = {
-        comments: []
-    };
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            comments:[]
+        }
+    }
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/comments')
-            .then(response => {
-                this.setState({ comments: response.data });
-            })
-            .catch(error => {
-                console.error('Error fetching comments:', error);
-            });
+        commentService.getAll().then(({data})=>this.setState({comments:data}))
     }
 
     render() {
-        const { comments } = this.state;
         return (
             <div>
-                <h2 style={{color:'darkgoldenrod'}}>Comments</h2>
-                <ul>
-                    {comments.map(comment => (
-                        <p key={comment.id}>
-                            <h4 style={{color:'darkblue'}}>ID: {comment.id}</h4>
-                            <h3 style={{color:'darkcyan'}}>{comment.name}</h3>
-                            <h3 style={{color:'darkcyan'}}>{comment.body}</h3>
-                        </p>
-                    ))}
-                </ul>
+                {this.state.comments.map(comment=><Comment key={comment.id} comment={comment}/>)}
             </div>
         );
     }
 }
 
-export default Comments;
+export {Comments};

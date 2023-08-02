@@ -1,23 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './Components/Header';
-import Posts from './Components/Posts';
-import Comments from './Components/Comments';
-import Cars from './Components/Cars';
+import {createBrowserRouter, Navigate} from "react-router-dom";
 
-function AppRouter() {
-    return (
-        <Router>
-            <div>
-                <Header />
-                <Routes>
-                    <Route path="/posts" element={<Posts />} />
-                    <Route path="/comments" element={<Comments />} />
-                    <Route path="/cars" element={<Cars />} />
-                </Routes>
-            </div>
-        </Router>
-    );
-}
+import {MainLayout} from "./layouts/MainLayout";
+import {CarsPage} from "./pages/CarsPage";
+import {PostsPage} from "./pages/PostsPage";
+import {CommentsPage} from "./pages/CommentsPage";
 
-export default AppRouter;
+const router = createBrowserRouter([
+    {
+        path:'',
+        element:<MainLayout/>,
+        children:[
+            {
+                index:true,
+                element:<Navigate to={'cars'}/>
+            },
+            {
+                path:'cars',
+                element:<CarsPage/>
+            },
+            {
+                path:'posts',
+                element:<PostsPage/>
+            },
+            {
+                path:'comments',
+                element:<CommentsPage/>
+            }
+        ]
+    }
+]);
+
+export {router}
