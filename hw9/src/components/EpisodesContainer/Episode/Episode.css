@@ -1,0 +1,25 @@
+.Episode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24%;
+    border: 0 solid;
+    border-radius: 30px;
+    color: rgb(0, 0, 0, 0);
+    margin: 3px;
+}
+
+.Episode:hover {
+    background-color: wheat;
+    cursor: pointer;
+    color: black;
+}
+
+button{
+    font-size: 25px;
+    border-radius: 30px;
+    border: 0 solid;
+    background-color: lightgray;
+    cursor: pointer;
+}
